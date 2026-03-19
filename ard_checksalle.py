@@ -124,11 +124,11 @@ if count == 0:
     sys.exit(0)
 
 if warn_threshold is not None and count >= warn_threshold and count < crit_threshold:
-    print(f"WARNING - {count} badge(s) sur {door_filter} | {last_msg}")
+    print(f"WARNING - {count} badge(s) sur {door_filter} - {last_msg}")
     sys.exit(1)
 
 if count >= crit_threshold:
-    print(f"CRITICAL - {count} badge(s) sur {door_filter} | {last_msg}")
+    print(f"CRITICAL - {count} badge(s) sur {door_filter} - {last_msg}")
     sys.exit(2)
 
 print(f"OK - {count} badge(s) sur {door_filter}")
