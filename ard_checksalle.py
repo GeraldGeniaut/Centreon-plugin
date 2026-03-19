@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Monitoring badges ARD v2.1 - 2026/03/18 - Géniaut Gérald pour le Crous de Paris
+# Monitoring badges ARD v2.2 - 2026/03/19 - Géniaut Gérald pour le Crous de Paris
 # https://github.com/GeraldGeniaut
 # ------------------------------------------------
 # Usage : ard_checksalle.py [-h] --url URL --user USER --password PASSWORD --door DOOR [--warning WARNING] [--critical CRITICAL]
