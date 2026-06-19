@@ -2,32 +2,32 @@
 /**
  * Active Directory - Locked Accounts API
  * --------------------------------------
- * Returns a JSON list of locked AD accounts with lock duration.
+ * Retourne un JSON avec la liste des comptes AD lock ainsi que la durée.
  *
  * Requirements:
- * - PHP LDAP extension enabled
- * - A valid LDAP connection file (see ldap_config.php)
+ * - PHP LDAP extension Active
+ * - Un fichier de connexion LDAP valide (voir ldap_config.php)
  */
 
 header('Content-Type: application/json');
 
-// 👉 External LDAP connection config
+// 👉 LDAP connection config
 $ldap_conn = include('ldap_config.php');
 
-// 👉 LDAP filter for locked accounts
+// 👉 LDAP filter pour les locks
 $filter = "(&(objectCategory=person)(objectClass=user)(lockoutTime>=1)(!(userAccountControl:1.2.840.113556.1.4.803:=2)))";
 
-// 👉 Base DN (TO ADAPT TO YOUR ENVIRONMENT)
+// 👉 Base DN (A Ajuster à votre environnement)
 $base_dn = "OU=YOUR_ORG_UNIT,DC=example,DC=local";
 
-// 👉 LDAP query
+// 👉 REQ LDAP
 $search = ldap_search($ldap_conn, $base_dn, $filter, ['samaccountname','lockoutTime']);
 $entries = ldap_get_entries($ldap_conn, $search);
 
 ldap_unbind($ldap_conn);
 
 /**
- * Convert Windows timestamp (AD) to Unix timestamp
+ * Convert Windows timestamp (AD) to Unix timestamp (Source Google)
  */
 function win_to_unix($ts) {
     if (!$ts || $ts == 0) return 0;
@@ -50,7 +50,7 @@ if ($entries['count'] > 0) {
     }
 }
 
-// 👉 JSON output
+// 👉 Sortie JSON 
 echo json_encode([
     "count" => count($locked),
     "users" => $locked
