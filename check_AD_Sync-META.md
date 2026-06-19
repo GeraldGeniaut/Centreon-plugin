@@ -127,8 +127,8 @@ Utilisation
 Exemple :
 
 ./check_AD_Sync-META.py \
-    -H 10.249.192.9 \
-    -u "SC\\centreon" \
+    -H 10.73.24.10 \
+    -u "centreon@geniaut.fr" \
     -p "MotDePasse"
 Exemple de commande Centreon
 $USER1$/check_AD_Sync-META.py \
@@ -143,11 +143,11 @@ Déploiement recommandé
 
 Créer un service Centreon sur chaque contrôleur de domaine :
 
+DC1
+DC2
+DC3
 DC4
 DC5
-DC6
-DC7
-DC8
 
 Cela permet d'identifier immédiatement quel contrôleur de domaine rencontre un problème de synchronisation avec MIM.
 
