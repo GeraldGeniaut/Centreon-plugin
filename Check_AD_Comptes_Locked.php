@@ -1,5 +1,5 @@
 <?php
-/**
+/** 
  * Active Directory - Locked Accounts API
  * --------------------------------------
  * Retourne un JSON avec la liste des comptes AD lock ainsi que la durée.
