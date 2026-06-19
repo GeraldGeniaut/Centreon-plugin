@@ -1,5 +1,7 @@
 #!/opt/centreon-python/bin/python3
 
+# GENIAUT Gérald v2.1 - 2026/06/19
+
 import os
 os.environ["OPENSSL_CONF"] = "/etc/centreon/openssl-ntlm.cnf"
 
